@@ -1,5 +1,5 @@
 import { Component, computed, inject, signal } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { MatSelectModule } from '@angular/material/select';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { CocktailService } from '../cocktail.service';
@@ -7,7 +7,12 @@ import { CocktailService } from '../cocktail.service';
 @Component({
   selector: 'landing',
   standalone: true,
-  imports: [CommonModule, MatSelectModule, MatFormFieldModule],
+  imports: [
+    CommonModule,
+    MatSelectModule,
+    MatFormFieldModule,
+    NgOptimizedImage,
+  ],
   styleUrl: './landing.component.scss',
   template: ` <div>
     <mat-form-field>
@@ -22,8 +27,15 @@ import { CocktailService } from '../cocktail.service';
         }
       </mat-select></mat-form-field
     >
-    input: {{ cocktailService.alcohol() }} drinkList:
-    {{ cocktailService.drinkList() }}
+
+    @if (cocktailService.drinksList().length) {
+    <div>
+      @for (cocktail of cocktailService.drinksList(); track cocktail.idDrink) {
+      <p>{{ cocktail.strDrink }}</p>
+      <img [ngSrc]="cocktail.strDrinkThumb" height="200" width="200" />
+      }
+    </div>
+    }
   </div>`,
 })
 export class LandingComponent {

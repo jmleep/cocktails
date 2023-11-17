@@ -1,5 +1,12 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable, Signal, computed, inject, signal, effect } from '@angular/core';
+import {
+  Injectable,
+  Signal,
+  computed,
+  inject,
+  signal,
+  effect,
+} from '@angular/core';
 
 export interface ICocktail {
   idDrink: string;
@@ -15,19 +22,22 @@ interface ICocktailDBResponse {
   providedIn: 'root',
 })
 export class CocktailService {
+  constructor() {
+    effect(async () => {
+      const resultPromise = this.http
+        .get<ICocktailDBResponse | undefined>(
+          `https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${this.alcohol()}`
+        )
+        .toPromise();
+
+      const result = await resultPromise;
+      console.log(result?.drinks ?? []);
+      this.drinksList.set(result?.drinks ?? []);
+    });
+  }
+
   http = inject(HttpClient);
 
   alcohol = signal('');
-
-  effect(async () => {
-    const resultPromise = this.http
-      .get<ICocktailDBResponse | undefined>(
-        `https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${this.alcohol()}`
-      )
-      .toPromise();
-
-    const result = await resultPromise;
-    console.log(result?.drinks ?? []);
-    return result?.drinks ?? [];
-  });
+  drinksList = signal<ICocktail[]>([]);
 }
