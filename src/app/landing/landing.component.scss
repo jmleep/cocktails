@@ -1,0 +1,20 @@
+.cocktail-results {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 10px;
+}
+
+.cocktail-card {
+  margin-bottom: 20px;
+}
+
+.cocktail-card-content {
+  padding: 20px;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: start;
+}
+
+.cocktail-image {
+  border-radius: 10px;
+}

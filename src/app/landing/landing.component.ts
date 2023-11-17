@@ -31,21 +31,19 @@ import { CocktailService } from '../cocktail.service';
       >
 
       @if (cocktailService.drinksList().length) {
-      <div>
+      <div class="cocktail-results">
         @for (cocktail of cocktailService.drinksList(); track cocktail.idDrink)
         {
-        <mat-card>
-          <mat-card-header
-            ><mat-card-title>{{
-              cocktail.strDrink
-            }}</mat-card-title></mat-card-header
-          >
-          <img
-            mat-card-image
-            [ngSrc]="cocktail.strDrinkThumb"
-            height="200"
-            width="200"
-          />
+        <mat-card class="cocktail-card">
+          <mat-card-content class="cocktail-card-content">
+            <h2>{{ cocktail.strDrink }}</h2>
+            <img
+              class="cocktail-image"
+              [ngSrc]="cocktail.strDrinkThumb"
+              height="200"
+              width="200"
+            />
+          </mat-card-content>
         </mat-card>
         }
       </div>
