@@ -1,0 +1,21 @@
+<a routerLink="">< Back</a>
+@if (!cocktail) {
+<div class="spinner"><mat-spinner></mat-spinner></div>
+} @else {
+<div class="content">
+  <div class="primary">
+    <h2>{{ cocktail.strDrink }}</h2>
+    <img
+      class="cocktail-image"
+      [ngSrc]="cocktail.strDrinkThumb"
+      height="500"
+      width="500"
+      priority
+    />
+  </div>
+
+  <div class="detail">
+    {{ cocktail.strInstructions }}
+  </div>
+</div>
+}

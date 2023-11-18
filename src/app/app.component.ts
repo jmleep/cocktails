@@ -1,14 +1,15 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
-import { LandingComponent } from './landing/landing.component';
+import { CocktailsComponent } from './cocktails/cocktails.component';
+import { MatToolbarModule } from '@angular/material/toolbar';
 
 @Component({
   selector: 'app-root',
   standalone: true,
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
-  imports: [CommonModule, RouterOutlet, LandingComponent],
+  imports: [CommonModule, RouterOutlet, CocktailsComponent, MatToolbarModule],
 })
 export class AppComponent {
   title = 'cocktail-app';

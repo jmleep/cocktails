@@ -1,0 +1,31 @@
+.cocktail-results {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 10px;
+}
+
+.cocktail-card {
+  margin-bottom: 20px;
+  padding-top: 20px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #f0f0f0;
+  }
+
+  &:active {
+    background-color: #c0c0c0;
+  }
+}
+
+.cocktail-card-content {
+  padding: 20px;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.cocktail-image {
+  border-radius: 10px;
+}
