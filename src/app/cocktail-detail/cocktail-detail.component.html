@@ -11,13 +11,14 @@
 @if (!cocktail) {
 <div class="spinner"><mat-spinner></mat-spinner></div>
 } @else {
+<h2>{{ cocktail.strDrink }}</h2>
 <div class="content">
   <div class="primary">
-    <h2>{{ cocktail.strDrink }}</h2>
     <img class="cocktail-image" [src]="cocktail.strDrinkThumb" priority />
   </div>
 
   <div class="detail">
+    <h3>Ingredients</h3>
     <mat-list>
       <span *ngIf="cocktail.strIngredient1"
         ><mat-list-item>
@@ -84,7 +85,8 @@
     </mat-list>
 
     <div class="instructions">
-      {{ cocktail.strInstructions }}
+      <h3>Instructions</h3>
+      <div>{{ cocktail.strInstructions }}</div>
     </div>
   </div>
 </div>
