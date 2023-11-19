@@ -1,21 +1,91 @@
-<a routerLink="">< Back</a>
+<a routerLink="" class="back-link">
+  <div class="link-container">
+    <mat-icon
+      aria-hidden="false"
+      aria-label="Back button"
+      fontIcon="chevron_left"
+    ></mat-icon
+    >Back
+  </div></a
+>
 @if (!cocktail) {
 <div class="spinner"><mat-spinner></mat-spinner></div>
 } @else {
 <div class="content">
   <div class="primary">
     <h2>{{ cocktail.strDrink }}</h2>
-    <img
-      class="cocktail-image"
-      [ngSrc]="cocktail.strDrinkThumb"
-      height="500"
-      width="500"
-      priority
-    />
+    <img class="cocktail-image" [src]="cocktail.strDrinkThumb" priority />
   </div>
 
   <div class="detail">
-    {{ cocktail.strInstructions }}
+    <mat-list>
+      <span *ngIf="cocktail.strIngredient1"
+        ><mat-list-item>
+          <span matListItemTitle>{{ cocktail.strIngredient1 }}</span>
+          <span matListItemLine>{{ cocktail.strMeasure1 }}</span>
+        </mat-list-item>
+      </span>
+      <mat-list-item *ngIf="cocktail.strIngredient2 !== null">
+        <span matListItemTitle>{{ cocktail.strIngredient2 }}</span>
+        <span matListItemLine>{{ cocktail.strMeasure2 }}</span>
+      </mat-list-item>
+      <mat-list-item *ngIf="cocktail.strIngredient3 !== null">
+        <span matListItemTitle>{{ cocktail.strIngredient3 }}</span>
+        <span matListItemLine>{{ cocktail.strMeasure3 }}</span>
+      </mat-list-item>
+      <mat-list-item *ngIf="cocktail.strIngredient4 !== null">
+        <span matListItemTitle>{{ cocktail.strIngredient4 }}</span>
+        <span matListItemLine>{{ cocktail.strMeasure4 }}</span>
+      </mat-list-item>
+      <mat-list-item *ngIf="cocktail.strIngredient5 !== null">
+        <span matListItemTitle>{{ cocktail.strIngredient5 }}</span>
+        <span matListItemLine>{{ cocktail.strMeasure5 }}</span>
+      </mat-list-item>
+      <mat-list-item *ngIf="cocktail.strIngredient6 !== null">
+        <span matListItemTitle>{{ cocktail.strIngredient6 }}</span>
+        <span matListItemLine>{{ cocktail.strMeasure6 }}</span>
+      </mat-list-item>
+      <mat-list-item *ngIf="cocktail.strIngredient7 !== null">
+        <span matListItemTitle>{{ cocktail.strIngredient7 }}</span>
+        <span matListItemLine>{{ cocktail.strMeasure7 }}</span>
+      </mat-list-item>
+      <mat-list-item *ngIf="cocktail.strIngredient8 !== null">
+        <span matListItemTitle>{{ cocktail.strIngredient8 }}</span>
+        <span matListItemLine>{{ cocktail.strMeasure8 }}</span>
+      </mat-list-item>
+      <mat-list-item *ngIf="cocktail.strIngredient9 !== null">
+        <span matListItemTitle>{{ cocktail.strIngredient9 }}</span>
+        <span matListItemLine>{{ cocktail.strMeasure9 }}</span>
+      </mat-list-item>
+      <mat-list-item *ngIf="cocktail.strIngredient10 !== null">
+        <span matListItemTitle>{{ cocktail.strIngredient10 }}</span>
+        <span matListItemLine>{{ cocktail.strMeasure10 }}</span>
+      </mat-list-item>
+      <mat-list-item *ngIf="cocktail.strIngredient11 !== null">
+        <span matListItemTitle>{{ cocktail.strIngredient11 }}</span>
+        <span matListItemLine>{{ cocktail.strMeasure11 }}</span>
+      </mat-list-item>
+      <mat-list-item *ngIf="cocktail.strIngredient12 !== null">
+        <span matListItemTitle>{{ cocktail.strIngredient12 }}</span>
+        <span matListItemLine>{{ cocktail.strMeasure12 }}</span>
+      </mat-list-item>
+      <mat-list-item *ngIf="cocktail.strIngredient13 !== null">
+        <span matListItemTitle>{{ cocktail.strIngredient13 }}</span>
+        <span matListItemLine>{{ cocktail.strMeasure13 }}</span>
+      </mat-list-item>
+      <mat-list-item *ngIf="cocktail.strIngredient14 !== null">
+        <span matListItemTitle>{{ cocktail.strIngredient14 }}</span>
+        <span matListItemLine>{{ cocktail.strMeasure14 }}</span>
+      </mat-list-item>
+      <mat-list-item *ngIf="cocktail.strIngredient15">
+        <span matListItemTitle>{{ cocktail.strIngredient15 }}</span>
+        <span matListItemLine>{{ cocktail.strMeasure15 }}</span>
+      </mat-list-item>
+    </mat-list>
+
+    <div class="instructions">
+      {{ cocktail.strInstructions }}
+    </div>
   </div>
 </div>
 }

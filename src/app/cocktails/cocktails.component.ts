@@ -1,11 +1,9 @@
 import { Component, inject } from '@angular/core';
-import { CommonModule, NgOptimizedImage } from '@angular/common';
+import { CommonModule } from '@angular/common';
 import { MatSelectModule } from '@angular/material/select';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatCardModule } from '@angular/material/card';
 import { CocktailService } from '../cocktail.service';
-import { Router, RouterModule } from '@angular/router';
-
+import { CocktailsResultGridComponent } from '../cocktails-result-grid/cocktails-result-grid.component';
 @Component({
   selector: 'cocktails',
   standalone: true,
@@ -13,9 +11,7 @@ import { Router, RouterModule } from '@angular/router';
     CommonModule,
     MatSelectModule,
     MatFormFieldModule,
-    NgOptimizedImage,
-    MatCardModule,
-    RouterModule,
+    CocktailsResultGridComponent,
   ],
   styleUrl: './cocktails.component.scss',
   template: ` <div>
@@ -32,36 +28,12 @@ import { Router, RouterModule } from '@angular/router';
     >
 
     @if (cocktailService.drinksList().length) {
-    <div class="cocktail-results">
-      @for (drink of cocktailService.drinksList(); track drink.idDrink) {
-      <mat-card
-        class="cocktail-card"
-        [routerLink]="'cocktail/' + drink.idDrink"
-      >
-        <div class="cocktail-card-content">
-          <div>
-            <img
-              class="cocktail-image"
-              [ngSrc]="drink.strDrinkThumb"
-              height="250"
-              width="250"
-            />
-            <h2 class="cocktail-card-header">{{ drink.strDrink }}</h2>
-          </div>
-        </div>
-      </mat-card>
-      }
-    </div>
+    <cocktails-result-grid></cocktails-result-grid>
     }
   </div>`,
 })
 export class CocktailsComponent {
   cocktailService = inject(CocktailService);
-  router = inject(Router);
-
-  navigateToCocktailDetail(id: string) {
-    this.router.navigateByUrl(`/cocktail/${id}`);
-  }
 
   alcoholList = [
     'Absinthe',

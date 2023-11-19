@@ -40,7 +40,7 @@ export interface ICocktail {
   strMeasure10: string;
   strMeasure11: string;
   strMeasure12: string;
-  strMeasuret13: string;
+  strMeasure13: string;
   strMeasure14: string;
   strMeasure15: string;
 }

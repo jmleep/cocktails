@@ -3,6 +3,8 @@ import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { CocktailService, ICocktail } from '../cocktail.service';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { RouterModule } from '@angular/router';
+import { MatListModule } from '@angular/material/list';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'cocktail-detail',
@@ -12,6 +14,8 @@ import { RouterModule } from '@angular/router';
     MatProgressSpinnerModule,
     NgOptimizedImage,
     RouterModule,
+    MatListModule,
+    MatIconModule,
   ],
   templateUrl: './cocktail-detail.component.html',
   styleUrl: './cocktail-detail.component.scss',
@@ -23,6 +27,5 @@ export class CocktailDetailComponent implements OnInit {
 
   async ngOnInit(): Promise<void> {
     this.cocktail = await this.cocktailSerivce.getById(this.id);
-    console.log(this.cocktail);
   }
 }
