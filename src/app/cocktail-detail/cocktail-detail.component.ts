@@ -1,6 +1,6 @@
 import { Component, Input, OnInit, inject } from '@angular/core';
 import { CommonModule, NgOptimizedImage } from '@angular/common';
-import { CocktailService, ICocktail } from '../cocktail.service';
+import { CocktailService, ICocktail } from '../services/cocktail.service';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { RouterModule } from '@angular/router';
 import { MatListModule } from '@angular/material/list';
