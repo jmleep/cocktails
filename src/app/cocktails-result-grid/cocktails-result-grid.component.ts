@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { CommonModule, NgOptimizedImage } from '@angular/common';
-import { CocktailService } from '../cocktail.service';
+import { CocktailService } from '../services/cocktail.service';
 import { Router, RouterModule } from '@angular/router';
 import { MatCardModule } from '@angular/material/card';
 

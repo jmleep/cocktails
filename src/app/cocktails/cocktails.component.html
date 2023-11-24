@@ -1,1 +1,17 @@
-<p>cocktails works!</p>
+<div>
+  <mat-form-field>
+    <mat-label>Select alcohol</mat-label>
+    <mat-select
+      [value]="cocktailService.alcohol()"
+      (valueChange)="cocktailService.alcohol.set($event)"
+    >
+      @for (alcohol of alcoholList; track alcohol) {
+      <mat-option [value]="alcohol">{{ alcohol }}</mat-option>
+      }
+    </mat-select></mat-form-field
+  >
+
+  @if (cocktailService.drinksList().length) {
+  <cocktails-result-grid></cocktails-result-grid>
+  }
+</div>
