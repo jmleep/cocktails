@@ -1,40 +1,27 @@
-// Custom Theming for Angular Material
-// For more information: https://material.angular.io/guide/theming
 @use "@angular/material" as mat;
-// Plus imports for other components in your app.
 
-// Include the common styles for Angular Material. We include this here so that you only
-// have to load a single css file for Angular Material in your app.
-// Be sure that you only ever include this mixin once!
 @include mat.core();
 
-// Define the palettes for your theme using the Material Design palettes available in palette.scss
-// (imported above). For each palette, you can optionally specify a default, lighter, and darker
-// hue. Available color palettes: https://material.io/design/color/
-$cocktail-app-primary: mat.define-palette(mat.$indigo-palette);
-$cocktail-app-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+$my-primary: mat.define-palette(mat.$indigo-palette, 400);
+$my-accent: mat.define-palette(mat.$gray-palette, 300);
 
-// The warn palette is optional (defaults to red).
-$cocktail-app-warn: mat.define-palette(mat.$red-palette);
-
-// Create the theme object. A theme consists of configurations for individual
-// theming systems such as "color" or "typography".
-$cocktail-app-theme: mat.define-light-theme(
+$my-theme: mat.define-dark-theme(
   (
     color: (
-      primary: $cocktail-app-primary,
-      accent: $cocktail-app-accent,
-      warn: $cocktail-app-warn,
+      primary: $my-primary,
+      accent: $my-accent,
     ),
+    typography: mat.define-typography-config(),
+    density: 0,
   )
 );
 
-// Include theme styles for core and each component used in your app.
-// Alternatively, you can import and @include the theme mixins for each component
-// that you are using.
-@include mat.all-component-themes($cocktail-app-theme);
+@include mat.all-component-themes($my-theme);
 
-/* You can add global styles to this file, and also import other style files */
+:root {
+  --color-primary: mat-color($primary, default);
+  --border-radius: 12px;
+}
 
 html,
 body {
@@ -45,11 +32,7 @@ body {
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
-:root {
-  --spacing: 20px;
-  --border-radius: 8px;
-  --primary-surface: #dedada;
-  --primary-interaction: #dedada;
-  --primary-interaction-hover: #cdcbcb;
-  --primary-interaction-active: #b0b0b0;
+.dark-theme {
+  background-color: #121212;
+  color: #ffffff;
 }
