@@ -1,14 +1,14 @@
 import { Routes } from '@angular/router';
-import { CocktailsComponent } from './cocktails/cocktails.component';
-import { CocktailDetailComponent } from './cocktail-detail/cocktail-detail.component';
+import { CocktailsHomePageComponent } from './pages/cocktails-home-page/cocktails-home-page.component';
+import { CocktailDetailPageComponent } from './pages/cocktail-detail-page/cocktail-detail-page.component';
 
 export const routes: Routes = [
   {
     path: '',
-    component: CocktailsComponent,
+    component: CocktailsHomePageComponent,
   },
   {
     path: 'cocktail/:id',
-    component: CocktailDetailComponent,
+    component: CocktailDetailPageComponent,
   },
 ];
