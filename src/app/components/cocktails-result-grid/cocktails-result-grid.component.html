@@ -2,15 +2,13 @@
   @for (drink of cocktailService.drinksList(); track drink.idDrink) {
   <mat-card class="cocktail-card" [routerLink]="'cocktail/' + drink.idDrink">
     <div class="cocktail-card-content">
-      <div>
-        <img
-          class="cocktail-image"
-          [ngSrc]="drink.strDrinkThumb"
-          height="250"
-          width="250"
-        />
-        <h2 class="cocktail-card-header">{{ drink.strDrink }}</h2>
-      </div>
+      <img
+        class="cocktail-image"
+        [ngSrc]="drink.strDrinkThumb"
+        height="250"
+        width="250"
+      />
+      <h2 class="cocktail-card-header">{{ drink.strDrink }}</h2>
     </div>
   </mat-card>
   }

@@ -1,7 +1,17 @@
 @if (!cocktail) {
 <div class="spinner"><mat-spinner></mat-spinner></div>
 } @else {
-<h2>{{ cocktail.strDrink }}</h2>
+<div class="header">
+  <div class="header-title-back">
+    <button mat-icon-button aria-label="about" (click)="back()">
+      <mat-icon>arrow_back</mat-icon>
+    </button>
+    <h2>{{ cocktail.strDrink }}</h2>
+  </div>
+  <button mat-icon-button aria-label="about" (click)="share(cocktail)">
+    <mat-icon>share</mat-icon>
+  </button>
+</div>
 <div class="content">
   <div class="image">
     <img class="cocktail-image" [src]="cocktail.strDrinkThumb" priority />
