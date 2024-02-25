@@ -23,7 +23,7 @@
 .content {
   display: flex;
   flex-flow: row wrap;
-  background-color: #212121;
+  background-color: var(--background-secondary);
   padding: 20px;
   border-radius: var(--border-radius);
 }
@@ -34,11 +34,6 @@
   padding-right: 20px;
 }
 
-a {
-  text-decoration: none;
-  color: black;
-}
-
 .detail {
   padding-top: 0px;
 }
@@ -47,6 +42,14 @@ a {
   border-radius: var(--border-radius);
   width: 550px;
   height: 550px;
+}
+
+span {
+  color: var(--color);
+
+  &:hover {
+    color: var(--color);
+  }
 }
 
 @media (max-width: 600px) {

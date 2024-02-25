@@ -2,21 +2,34 @@
 
 @include mat.core();
 
-$my-primary: mat.define-palette(mat.$indigo-palette, 400);
-$my-accent: mat.define-palette(mat.$gray-palette, 300);
+$my-light-primary: mat.define-palette(mat.$indigo-palette, 800);
+$my-dark-primary: mat.define-palette(mat.$indigo-palette, 200);
+$my-light-accent: mat.define-palette(mat.$gray-palette, 200);
+$my-dark-accent: mat.define-palette(mat.$gray-palette, 900);
 
-$my-theme: mat.define-dark-theme(
+$my-light-theme: mat.define-light-theme(
   (
     color: (
-      primary: $my-primary,
-      accent: $my-accent,
+      primary: $my-light-primary,
+      accent: $my-light-accent,
     ),
     typography: mat.define-typography-config(),
     density: 0,
   )
 );
 
-@include mat.all-component-themes($my-theme);
+$my-dark-theme: mat.define-dark-theme(
+  (
+    color: (
+      primary: $my-dark-primary,
+      accent: $my-dark-accent,
+    ),
+    typography: mat.define-typography-config(),
+    density: 0,
+  )
+);
+
+@include mat.all-component-themes($my-light-theme);
 
 :root {
   --color-primary: mat-color($primary, default);
@@ -24,6 +37,19 @@ $my-theme: mat.define-dark-theme(
   //--primary-interaction-hover: mat-color($primary, default)
   --border-radius: 12px;
   --spacing: 10px;
+  --background: #fff;
+  --background-secondary: #f8f4f4;
+  --color: #121212;
+}
+
+@media (prefers-color-scheme: dark) {
+  @include mat.all-component-colors($my-dark-theme);
+
+  :root {
+    --background: #121212;
+    --background-secondary: #212121;
+    --color: #fff;
+  }
 }
 
 html,
@@ -33,9 +59,6 @@ body {
 body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
-}
-
-.dark-theme {
-  background-color: #121212;
-  color: #ffffff;
+  background-color: var(--background);
+  color: var(--color);
 }
